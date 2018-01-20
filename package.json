@@ -1,0 +1,14 @@
+{
+  "name": "pragma-brewery",
+  "version": "1.0.0",
+  "description": "PragmaBrewery Code Challenge",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "author": "Marcio Cleber Barboza",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-task-listing": "^1.0.1"
+  }
+}
