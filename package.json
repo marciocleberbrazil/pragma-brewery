@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "description": "PragmaBrewery Code Challenge",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "tests": "gulp tests",
+    "start": "http-server ./src -a localhost -p 8000 -c-1"
   },
   "author": "Marcio Cleber Barboza",
   "devDependencies": {
+    "angular-mocks": "^1.6.8",
     "gulp": "^3.9.1",
     "gulp-load-plugins": "^1.5.0",
     "gulp-plumber": "^1.2.0",
     "gulp-task-listing": "^1.0.1",
+    "http-server": "^0.6.1",
     "jasmine-core": "^2.9.1",
     "karma": "^2.0.0",
     "karma-jasmine": "^1.1.1",
@@ -20,6 +24,7 @@
     "phantomjs-prebuilt": "^2.1.16"
   },
   "dependencies": {
-    "angular": "^1.6.8"
+    "angular": "^1.6.8",
+    "@uirouter/angularjs": "latest"
   }
 }
