@@ -7,43 +7,43 @@
 	Truck.$inject = ['$interval', 'beers'];
 
     function Truck($interval, beers) {
+		var _timer;
+		var _timerStep = 0.5;
+		var _timerDelay = 1000;
 		var vm = this;
 		vm.currentTemperature = 0;
 		vm.minTemperature = 4;
-		vm.switchDoor = false;
+		vm.toggleDoor = toggleDoor;
+		vm.doorOpen = false;
 
-		vm.open = open;
-		vm.close = close;
+		function toggleDoor() {
+			vm.doorOpen = !vm.doorOpen;
 
-		var _timerStep = 0.5;
-		var _timerSize = 1000;
-		var _timerIncrease;
-		var _timerDecrease;
+			killTimer();
 
-		function close(timerStep) {
-			timerStep =  timerStep || _timerStep;
-			vm.switchDoor = false;
-
-			$interval.cancel(_timerIncrease);
-			_timerDecrease = $interval(function(){
-				decreaseTime(timerStep);
-			}, _timerSize);
+			_timer = $interval(function() {
+				if(vm.doorOpen)
+					increaseTime();
+				else
+					decreaseTime();
+			}, _timerDelay);
 		}
 
-		function open() {
-			vm.switchDoor = true;
-			$interval.cancel(_timerDecrease);
-			_timerIncrease = $interval(function() {
-				vm.currentTemperature += _timerStep;
-			}, _timerSize);
+		function increaseTime(timerStep) {
+			timerStep =  timerStep || _timerStep;
+			vm.currentTemperature += _timerStep;
 		}
 
 		function decreaseTime(timerStep) {
 			timerStep =  timerStep || _timerStep;
 			if(vm.currentTemperature <= vm.minTemperature)
-				$interval.cancel(_timerDecrease);
+				killTimer();
 			else
 				vm.currentTemperature -= timerStep;
+		}
+
+		function killTimer() {
+			if(_timer) $interval.cancel(_timer);
 		}
 
 		this.$onInit = function () {

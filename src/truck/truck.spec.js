@@ -1,40 +1,44 @@
 describe('truck section', function () {
 
-	var truck, scope;
+	var truck, scope, interval;
 
 	beforeEach(module('app.truck'));
 
-	beforeEach(inject(function (_$controller_) {
+	beforeEach(inject(function (_$controller_, _$interval_) {
 		truck = _$controller_('Truck', {
 			$scope: scope
 		});
+		interval = _$interval_;
 	}));
 
 	describe('Close door', function () {
 
-		it('should decrease the timer', function(){
+		it('should increase the temperature', function(){
 
-			expect(truck).toBeDefined();
+			var currentTemperature = 1;
+			truck.currentTemperature = currentTemperature;
+			truck.doorOpen = true;
+			truck.toggleDoor();
+			var timerStep = 0.5;
+			interval.flush(2000);
+			expect(truck.currentTemperature).toBe(currentTemperature - timerStep);
+
+			/*expect(truck).toBeDefined();
 			expect(truck.close).toBeDefined();
 
 			var timerStep = 0.5;
 			var currentTemperature = 1;
 			truck.currentTemperature = currentTemperature;
 			truck.close(timerStep);
-			expect(truck.currentTemperature).toBe(currentTemperature - timerStep);
+
+			interval.flush(1000);
+
+			expect(truck.currentTemperature).toBe(currentTemperature - timerStep);*/
 		});
 
-		it('should stop timer based on truck temperature', function(){
+		/*it('should stop timer based on truck temperature', function(){
 
-		});
-
-		it('should disable close button', function(){
-
-		});
-
-		it('should enable open button', function(){
-
-		});
+		});*/
 	});
 
 

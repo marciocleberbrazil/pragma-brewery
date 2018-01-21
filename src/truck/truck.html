@@ -1,7 +1,10 @@
 <div>
-	<button ng-click="truckCtrl.open()" ng-disabled="truckCtrl.switchDoor">Open truck door</button>
-	<button ng-click="truckCtrl.close()" ng-disabled="!truckCtrl.switchDoor">Close truck door</button>
-	<p>Temperature: {{truckCtrl.currentTemperature}}</p>
+	<fieldset>
+		<legend>Truck temperature</legend>
+		<p>Minimum: {{truckCtrl.minTemperature}}°C</p>
+		<p>Current: {{truckCtrl.currentTemperature}}°C</p>
+		<p><button ng-click="truckCtrl.toggleDoor()">{{truckCtrl.doorOpen ? 'Close' : 'Open' }} truck door</button></p>
+	</fieldset>
 	<div class="containers">
 		<container-component class="item" beer="beer" current-temperature="{{truckCtrl.currentTemperature}}" ng-repeat="beer in truckCtrl.beers"></container-component>
 	</div>
