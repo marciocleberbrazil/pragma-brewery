@@ -29,17 +29,15 @@
 			}, _timerDelay);
 		}
 
-		function increaseTime(timerStep) {
-			timerStep =  timerStep || _timerStep;
+		function increaseTime() {
 			vm.currentTemperature += _timerStep;
 		}
 
-		function decreaseTime(timerStep) {
-			timerStep =  timerStep || _timerStep;
+		function decreaseTime() {
 			if(vm.currentTemperature <= vm.minTemperature)
 				killTimer();
 			else
-				vm.currentTemperature -= timerStep;
+				vm.currentTemperature -= _timerStep;
 		}
 
 		function killTimer() {

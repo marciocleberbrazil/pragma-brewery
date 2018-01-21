@@ -12,57 +12,38 @@ describe('truck section', function () {
 	}));
 
 	describe('Close door', function () {
+		var currentTemperature;
+
+		beforeEach(function(){
+			currentTemperature = 5;
+			truck.currentTemperature = currentTemperature;
+		});
 
 		it('should increase the temperature', function(){
+			truck.doorOpen = false;
+			truck.toggleDoor();
+			var timerStep = 0.5;
+			interval.flush(1000);
+			expect(truck.currentTemperature).toBe(currentTemperature + timerStep);
+		});
 
-			var currentTemperature = 1;
-			truck.currentTemperature = currentTemperature;
+		it('should decrease the temperature', function(){
 			truck.doorOpen = true;
 			truck.toggleDoor();
 			var timerStep = 0.5;
-			interval.flush(2000);
-			expect(truck.currentTemperature).toBe(currentTemperature - timerStep);
-
-			/*expect(truck).toBeDefined();
-			expect(truck.close).toBeDefined();
-
-			var timerStep = 0.5;
-			var currentTemperature = 1;
-			truck.currentTemperature = currentTemperature;
-			truck.close(timerStep);
-
 			interval.flush(1000);
-
-			expect(truck.currentTemperature).toBe(currentTemperature - timerStep);*/
+			expect(truck.currentTemperature).toBe(currentTemperature - timerStep);
 		});
 
-		/*it('should stop timer based on truck temperature', function(){
+		it('should not decrease minimal temperature', function(){
+			var minimalTemperature = 4;
+			currentTemperature = 4;
+			truck.currentTemperature = currentTemperature;
 
-		});*/
+			truck.doorOpen = true;
+			truck.toggleDoor();
+			interval.flush(1000);
+			expect(truck.currentTemperature).toBe(minimalTemperature);
+		});
 	});
-
-
-    /*describe('Truck Controller', function () {
-
-
-
-
-
-        it('should provide simple access to its data', function () {
-            var scope = {};
-            var truck = $controller('Truck', {$scope: scope});
-
-			expect(truck).toBeDefined();
-
-			expect(truck.currentTemperature).toBeDefined();
-
-
-			expect(truck.minTemperature).toBeDefined();
-			expect(truck.minTemperature).toBeGreaterThan(2);
-
-			expect(truck.open).toBeDefined();
-
-			expect(truck.close).toBeDefined();
-        });
-    });*/
 });

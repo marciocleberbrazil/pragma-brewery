@@ -3,7 +3,8 @@ var $ = require('gulp-load-plugins')({ lazy: true }),
 	browserSync = require('browser-sync').create(),
 	del = require('del'),
 	gulp = require('gulp'),
-	karma = require('karma');
+	karma = require('karma'),
+	runSequence = require('run-sequence');
 
 var config = {
 	isDebug: args.debug ? args.debug : false,
@@ -80,8 +81,13 @@ gulp.task('build:cleanup', function () {
 /**
  * Run all build process step by step
  */
-gulp.task('build', ['build:cleanup'], function () {
-	gulp.start(['build:js', 'build:copyfiles']);
+gulp.task('build',  function (callback) {
+	runSequence(
+		'build:cleanup',
+		'build:js',
+		'build:copyfiles',
+		callback
+	);
 });
 
 /**
