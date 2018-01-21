@@ -16,7 +16,7 @@
 		vm.close = close;
 
 		var timerStep = 0.5;
-		var timerSize = 3000;
+		var timerSize = 1000;
 		var timerIncrease;
 		var timerDecrease;
 

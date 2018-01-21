@@ -14,7 +14,8 @@ var config = {
 	},
 	filename: {
 		js: 'app.min.js',
-		html: 'index.html'
+		html: 'index.html',
+		templates: 'templates.js'
 	}
 };
 
@@ -38,9 +39,27 @@ gulp.task('build:copyfiles', function () {
 });
 
 /**
+ * Compile Html files and Cache with $templateCache
+ */
+gulp.task('build:html', function () {
+	return gulp.src([
+			config.folder.src + '**/*.html',
+		])
+		.pipe($.if(config.isDebug, $.debug()))
+		.pipe($.sourcemaps.init())
+		.pipe($.angularTemplatecache({
+			module: 'app',
+			root: './',
+			standalone: false
+		}))
+		.pipe($.concat(config.filename.templates))
+		.pipe(gulp.dest(config.folder.src));
+});
+
+/**
  * Compile JavaScript files
  */
-gulp.task('build:js', function () {
+gulp.task('build:js', ['build:html'], function () {
 	return gulp.src([
 			config.folder.src + '**/*.js', '!' + config.folder.src + '**/*.spec.js'
 		])

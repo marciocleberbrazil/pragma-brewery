@@ -6,7 +6,7 @@
                 views: {
                     "main": {
                         controller: 'Truck as truckCtrl',
-                        templateUrl: 'truck/truck.html'
+                        templateUrl: './truck/truck.html'
                     }
                 },
                 data: {pageTitle: 'Truck'}
