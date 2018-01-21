@@ -8,19 +8,14 @@ module.exports = function (config) {
 		],
 
 		files: [
-			/*'src/bower_components/angular/angular.js',
-			'src/bower_components/angular-ui-router/release/angular-ui-router.js',
-			'src/bower_components/angular-mocks/angular-mocks.js',*/
 			'node_modules/angular/angular.js',
             'node_modules/angular-ui-router/release/angular-ui-router.js',
 			'node_modules/angular-mocks/angular-mocks.js',
-			'src/**/*module.js',
-			'src/**/*.js'
+			'dist/**/*.js',
+			'src/**/*.spec.js'
 		],
 
-		exclude: [
-			'src/bower_components/**/*.js'
-		],
+		exclude: [],
 
 		reporters: ['mocha'],
 

@@ -1,15 +1,48 @@
 describe('truck section', function () {
 
-    beforeEach(module('app.truck'));
+	var truck, scope;
 
-    describe('Truck Controller', function () {
+	beforeEach(module('app.truck'));
 
-        var $controller;
+	beforeEach(inject(function (_$controller_) {
+		truck = _$controller_('Truck', {
+			$scope: scope
+		});
+	}));
 
-        beforeEach(inject(function (_$controller_) {
-            // The injector unwraps the underscores (_) from around the parameter names when matching
-            $controller = _$controller_;
-        }));
+	describe('Close door', function () {
+
+		it('should decrease the timer', function(){
+
+			expect(truck).toBeDefined();
+			expect(truck.close).toBeDefined();
+
+			var timerStep = 0.5;
+			var currentTemperature = 1;
+			truck.currentTemperature = currentTemperature;
+			truck.close(timerStep);
+			expect(truck.currentTemperature).toBe(currentTemperature - timerStep);
+		});
+
+		it('should stop timer based on truck temperature', function(){
+
+		});
+
+		it('should disable close button', function(){
+
+		});
+
+		it('should enable open button', function(){
+
+		});
+	});
+
+
+    /*describe('Truck Controller', function () {
+
+
+
+
 
         it('should provide simple access to its data', function () {
             var scope = {};
@@ -27,5 +60,5 @@ describe('truck section', function () {
 
 			expect(truck.close).toBeDefined();
         });
-    });
+    });*/
 });

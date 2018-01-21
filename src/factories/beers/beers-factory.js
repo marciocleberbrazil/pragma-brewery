@@ -1,6 +1,7 @@
-angular.module('app.beers.beers-factory',[])
-		.factory('beers', beers);
-		beers.$inject = [];
+angular.module('app.beers.beers-factory', [])
+	.factory('beers', beers);
+
+beers.$inject = [];
 
 function beers() {
 	return {
