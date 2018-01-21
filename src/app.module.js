@@ -3,7 +3,8 @@
 
 	angular.module('app', [
 		'ui.router',
-		'app.truck'
+		'app.truck',
+		'app.container'
 	]);
 
 })();

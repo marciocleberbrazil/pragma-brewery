@@ -1,0 +1,12 @@
+.containers {
+	display: flex;
+    flex-wrap: wrap;
+}
+.containers .item {
+	border: 1px solid #333333;
+    padding: 5px;
+    margin: 5px;
+}
+.containers .item .red{
+	color: red;
+}

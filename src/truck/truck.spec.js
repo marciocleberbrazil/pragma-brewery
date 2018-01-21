@@ -15,14 +15,17 @@ describe('truck section', function () {
             var scope = {};
             var truck = $controller('Truck', {$scope: scope});
 
-            expect(truck).toBeDefined();
-            expect(truck.name).toBeDefined();
-            expect(truck.number).toBeDefined();
+			expect(truck).toBeDefined();
 
-            expect(truck.name).toBe('Kaiser Sose');
-            expect(truck.number).toBe('867-5309');
+			expect(truck.currentTemperature).toBeDefined();
 
 
+			expect(truck.minTemperature).toBeDefined();
+			expect(truck.minTemperature).toBeGreaterThan(2);
+
+			expect(truck.open).toBeDefined();
+
+			expect(truck.close).toBeDefined();
         });
     });
 });

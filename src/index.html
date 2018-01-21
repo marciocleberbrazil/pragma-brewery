@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>PragmaBrewery</title>
+
+	<link rel="stylesheet" href="app.css">
 </head>
 <body>
 	<div ui-view="main"></div>
@@ -13,10 +15,18 @@
 	<script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
 
+	<!-- beers -->
+	<script type="text/javascript" src="factories/beers/beers.js"></script>
+	<script type="text/javascript" src="factories/beers/beers-factory.js"></script>
+
 	<!-- truck -->
 	<script type="text/javascript" src="truck/truck.module.js"></script>
 	<script type="text/javascript" src="truck/truck.route.js"></script>
 	<script type="text/javascript" src="truck/truck.js"></script>
+
+	<!-- container -->
+	<script type="text/javascript" src="components/container/container.js"></script>
+	<script type="text/javascript" src="components/container/container-component.js"></script>
 
 	<script type="text/javascript" src="app.module.js"></script>
   	<script type="text/javascript" src="app.route.js"></script>

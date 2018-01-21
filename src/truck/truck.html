@@ -1,9 +1,8 @@
 <div>
-	<div class="jumbotron">
-		<div>
-			<h1>Welcome!</h1>
-			<h2>I am {{truckCtrl.name}}</h2>
-			<h2>My number is: {{truckCtrl.number}}</h2>
-		</div>
+	<button ng-click="truckCtrl.open()" ng-disabled="truckCtrl.switchDoor">Open truck door</button>
+	<button ng-click="truckCtrl.close()" ng-disabled="!truckCtrl.switchDoor">Close truck door</button>
+	<p>Temperature: {{truckCtrl.currentTemperature}}</p>
+	<div class="containers">
+		<container-component class="item" beer="beer" current-temperature="{{truckCtrl.currentTemperature}}" ng-repeat="beer in truckCtrl.beers"></container-component>
 	</div>
 </div>
