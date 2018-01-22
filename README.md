@@ -4,6 +4,7 @@ PragmaBrewery Code Challenge.
 
 ### Installing app.
 
+You need to install Node.js on your machine check this guide [here](https://nodejs.org/en/)
 You need to install gulp on your machine check this guide [here](https://gulpjs.com/)
 
 First git clone the repo.
