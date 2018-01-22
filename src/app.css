@@ -1,15 +1,65 @@
-.containers {
+body{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.page-truck ul {
+	padding: 0;
+    list-style: none;
+}
+.page-truck ul li {
+	margin-bottom: 5px;
+}
+.page-truck ul li.controls {
+	display: flex;
+	justify-content: flex-start;
+}
+.page-truck ul li button {
+	display: block;
+    font-size: 1.0em;
+	cursor: pointer;
+	color: #ffffff;
+    font-weight: bold;
+}
+.page-truck ul li button.increase {
+	background-color: red;
+}
+.page-truck ul li button.decrease {
+	background-color: blue;
+}
+.page-truck ul li p.warn-above strong{
+	color: red;
+}
+.page-truck ul li p.warn-below strong{
+	color: blue;
+}
+.page-truck .containers {
 	display: flex;
     flex-wrap: wrap;
 }
-.containers .item {
+.page-truck .containers .item {
 	border: 1px solid #333333;
     padding: 5px;
-    margin: 5px;
+	margin: 5px;
+	flex-basis: 200px;
+    text-align: center;
 }
-.containers .item .red{
+.page-truck .containers .item .red{
 	color: red;
 }
-.containers .item .blue{
-	color: #ADD8E6;
+.page-truck .containers .item .blue{
+	color: blue;
+}
+
+@media screen and (max-width: 600px) {
+	h1, .page-truck h2{
+		text-align: center;
+	}
+	.page-truck ul li.controls {
+		justify-content: center;
+	}
+	.page-truck ul li button {
+		margin: 0 auto;
+	}
+	.page-truck .containers .item {
+		flex-basis: 100%;
+	}
 }
