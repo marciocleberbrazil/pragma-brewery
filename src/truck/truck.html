@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="page-truck">
 	<h2>Manage the truck temperature with the two button below(simulation)</h2>
 	<ul>
@@ -12,6 +13,14 @@
 			<p class="warn-below">Container with colour <strong>BLUE</strong> means the temperature is below the limit.</p>
 		</li>
 	</ul>
+=======
+<div>
+	<fieldset>
+		<legend>Manage the truck temperature</legend>
+		<p><button ng-click="truckCtrl.increase()">Increase</button></p>
+		<p><button ng-click="truckCtrl.decrease()">Decrease</button></p>
+	</fieldset>
+>>>>>>> 5c4cc0621b1b0c9386635f7dbdac1d0c8845d5bc
 	<div class="containers">
 		<container-component class="item" beer="beer" ng-repeat="beer in truckCtrl.beers"></container-component>
 	</div>
