@@ -117,6 +117,7 @@ gulp.task('start', ['build'], function () {
 		[
 			config.folder.src + '**/*.js',
 			config.folder.src + '**/*.html',
+			config.folder.src + '**/*.css',
 		],
 		['build']
 	)
