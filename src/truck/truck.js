@@ -4,48 +4,20 @@
     angular.module('app.truck')
         .controller('Truck', Truck);
 
-	Truck.$inject = ['$interval', 'beers'];
+	Truck.$inject = ['$scope', 'beers'];
 
-    function Truck($interval, beers) {
-		var _timer;
-		var _timerStep = 0.5;
-		var _timerDelay = 1000;
+    function Truck($scope, beers) {
 		var vm = this;
-		vm.currentTemperature = 0;
-		vm.minTemperature = 4;
-		vm.toggleDoor = toggleDoor;
-		vm.doorOpen = false;
 
-		function toggleDoor() {
-			vm.doorOpen = !vm.doorOpen;
-
-			killTimer();
-
-			_timer = $interval(function() {
-				if(vm.doorOpen)
-					increaseTime();
-				else
-					decreaseTime();
-			}, _timerDelay);
+		vm.increase = function() {
+			$scope.$broadcast('eventIncreaseTemperature', null);
 		}
 
-		function increaseTime() {
-			vm.currentTemperature += _timerStep;
+		vm.decrease = function() {
+			$scope.$broadcast('eventDecreaseTemperature', null);
 		}
 
-		function decreaseTime() {
-			if(vm.currentTemperature <= vm.minTemperature)
-				killTimer();
-			else
-				vm.currentTemperature -= _timerStep;
-		}
-
-		function killTimer() {
-			if(_timer) $interval.cancel(_timer);
-		}
-
-		this.$onInit = function () {
-			vm.currentTemperature = vm.minTemperature;
+		vm.$onInit = function () {
 			vm.beers = beers.getBeers();
 		}
     }
