@@ -4,18 +4,20 @@ describe('Component: containerComponent', function () {
 	var element;
 	var scope;
 	beforeEach(inject(function($rootScope, $compile){
-	  	scope = $rootScope.$new();
+			scope = $rootScope.$new();
+			scope.beer = {
+				name: 'Beer 1',
+				type: 'Pilsner',
+				temperature: {
+					min: 4,
+					max: 6
+				}
+			};
+			
+			
 	  	element = angular.element('<container-component beer="beer"></container-component>');
-	  	element = $compile(element)(scope);
-	  	scope.beer = {
-			name: 'Beer 1',
-			type: 'Pilsner',
-			temperature: {
-				min: 4,
-				max: 6
-			}
-		};
-	  	scope.$apply();
+			element = $compile(element)(scope);
+			scope.$apply();
 	}));
 
 	it('should render the text', function() {
@@ -23,4 +25,4 @@ describe('Component: containerComponent', function () {
 	  expect(h1.text()).toBe('Beer 1');
 	});
 
-  });
+});
