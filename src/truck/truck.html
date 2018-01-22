@@ -1,11 +1,10 @@
 <div>
 	<fieldset>
 		<legend>Truck temperature</legend>
-		<p>Minimum: {{truckCtrl.minTemperature}}°C</p>
-		<p>Current: {{truckCtrl.currentTemperature}}°C</p>
-		<p><button ng-click="truckCtrl.toggleDoor()">{{truckCtrl.doorOpen ? 'Close' : 'Open' }} truck door</button></p>
+		<p><button ng-click="truckCtrl.increase()">Increase</button></p>
+		<p><button ng-click="truckCtrl.decrease()">Decrease</button></p>
 	</fieldset>
 	<div class="containers">
-		<container-component class="item" beer="beer" current-temperature="{{truckCtrl.currentTemperature}}" ng-repeat="beer in truckCtrl.beers"></container-component>
+		<container-component class="item" beer="beer" ng-repeat="beer in truckCtrl.beers"></container-component>
 	</div>
 </div>
