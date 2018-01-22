@@ -45,7 +45,6 @@ body{
 .page-truck .containers .item .red{
 	color: red;
 }
-<<<<<<< HEAD
 .page-truck .containers .item .blue{
 	color: blue;
 }
@@ -63,8 +62,4 @@ body{
 	.page-truck .containers .item {
 		flex-basis: 100%;
 	}
-=======
-.containers .item .blue{
-	color: #ADD8E6;
->>>>>>> 5c4cc0621b1b0c9386635f7dbdac1d0c8845d5bc
 }
