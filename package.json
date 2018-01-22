@@ -5,7 +5,7 @@
   "scripts": {
     "test": "gulp test",
     "tests": "gulp tests",
-    "start": "http-server ./src -a localhost -p 8000 -c-1"
+    "start": "gulp start"
   },
   "author": "Marcio Cleber Barboza",
   "devDependencies": {
