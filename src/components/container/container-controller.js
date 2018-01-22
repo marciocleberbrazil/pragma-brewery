@@ -16,8 +16,16 @@ function ContainerController($scope) {
 		vm.decreaseTemperature();
 	});
 
-	vm.temperatureIsOutOfRange = function () {
-		return (vm.currentTemperature < vm.beer.temperature.min) || (vm.currentTemperature > vm.beer.temperature.max);
+	vm.checkTemperature = function () {
+		var outOfRange = (vm.currentTemperature < vm.beer.temperature.min) || (vm.currentTemperature > vm.beer.temperature.max);
+		if(outOfRange) {
+			if(vm.currentTemperature > vm.beer.temperature.max)
+				return 'up';
+			if(vm.currentTemperature < vm.beer.temperature.min)
+				return 'down';
+		} else {
+			return 'okay';
+		}
 	}
 
 	vm.increaseTemperature = function () {

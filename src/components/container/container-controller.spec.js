@@ -149,8 +149,8 @@ describe('Check the container controller', function () {
             }
         };
         controller.currentTemperature = 7;
-        expect(controller.temperatureIsOutOfRange).toBeDefined();
-        expect(controller.temperatureIsOutOfRange()).toBeTrue();
+        expect(controller.checkTemperature).toBeDefined();
+        expect(controller.checkTemperature()).toBe('up');
     });
 
     it('should warn if the temperature is 2.5 and it is below minimum', function() {
@@ -161,8 +161,8 @@ describe('Check the container controller', function () {
             }
         };
         controller.currentTemperature = 2.5;
-        expect(controller.temperatureIsOutOfRange).toBeDefined();
-        expect(controller.temperatureIsOutOfRange()).toBeTrue();
+        expect(controller.checkTemperature).toBeDefined();
+        expect(controller.checkTemperature()).toBe('down');
     });
 
     it('should not warn because temperature is 4 and it is not out of range', function() {
@@ -173,7 +173,7 @@ describe('Check the container controller', function () {
             }
         };
         controller.currentTemperature = 4;
-        expect(controller.temperatureIsOutOfRange).toBeDefined();
-        expect(controller.temperatureIsOutOfRange()).toBeFalsy();
+        expect(controller.checkTemperature).toBeDefined();
+        expect(controller.checkTemperature()).toBe('okay');
     });
 });
